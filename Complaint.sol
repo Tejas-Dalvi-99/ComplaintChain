@@ -12,7 +12,7 @@ contract Complaint {
     Victim[] complaintsArray;  
     mapping(address => bool) isBlacklisted;
     mapping(address => uint) userComplaintCounts;
-    uint256 public freeComplaintsCount = 2;
+    // uint256 public freeComplaintsCount = 2;    we will directly compare with 'number 2' instead of making a variable 
     address payable owner;  
 
     constructor() {
@@ -22,7 +22,7 @@ contract Complaint {
     function SendComplaint(string memory complaintDetails) public payable {
         require(!isBlacklisted[msg.sender], "Your Account is Banned");
 
-        if (userComplaintCounts[msg.sender] < freeComplaintsCount) {
+        if (userComplaintCounts[msg.sender] < 2) {   // this number is the number of free complaints count for each user
             userComplaintCounts[msg.sender]++;
         } else {
             // Charge Ether after the first two complaints

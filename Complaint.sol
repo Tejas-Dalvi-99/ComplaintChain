@@ -22,7 +22,7 @@ contract Complaint {
     function SendComplaint(string memory complaintDetails) public payable {
         require(!isBlacklisted[msg.sender], "Your Account is Banned");
 
-        if (userComplaintCounts[msg.sender] < 2) {   // this number is the number of free complaints count for each user
+        if (userComplaintCounts[msg.sender] < 2) {   // this number is the no. of free complaints count for each user
             userComplaintCounts[msg.sender]++;
         } else {
             // Charge Ether after the first two complaints

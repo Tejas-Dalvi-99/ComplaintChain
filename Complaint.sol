@@ -37,14 +37,14 @@ contract Complaint {
     function addToBlacklist(address userAddress) public {
         // require(msg.sender == owner, "Only the owner can blacklist addresses");
         // its a good practice that the owner is only able to blacklist but it would be hectic for a single person. 
-        // so we will give this function in our admin dashboard 
+        // so we will manage the access in our frontend and give this function in our admin dashboard 
         isBlacklisted[userAddress] = true;
     }
 
     function removeFromBlacklist(address userAddress) public {
         // require(msg.sender == owner, "Only the owner can remove from blacklist");
         // its a good practice that the owner is only able to blacklist but it would be hectic for a single person. 
-        // so we will give this function in our admin dashboard 
+        // so we will manage the access in our frontend and give this function in our admin dashboard 
         isBlacklisted[userAddress] = false;
     }
 
